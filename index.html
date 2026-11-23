@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="JokeyPÔ Premium - Desafie a máquina em uma experiência moderna de Pedra, Papel e Tesoura.">
+
+    <title>JokeyPÔ | Premium Edition</title>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Scripts -->
+    <script src="js/storage.js" defer></script>
+    <script src="js/statistics.js" defer></script>
+    <script src="js/scoreboard.js" defer></script>
+    <script src="js/game.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="app-container">
+
+        <!-- CABEÇALHO -->
+        <header class="header">
+
+            <div class="brand">
+                <div class="brand-icon">✊</div>
+
+                <div>
+                    <h1>Jokey<span>PÔ</span></h1>
+                    <p>PREMIUM EDITION</p>
+                </div>
+            </div>
+
+            <div class="header-status">
+                <span class="status-indicator"></span>
+                ONLINE
+            </div>
+
+        </header>
+
+        <!-- INTRODUÇÃO -->
+        <section class="welcome-section">
+
+            <span class="section-tag">DESAFIO DA VEZ</span>
+
+            <h2>Prepare-se para o <span>desafio.</span></h2>
+
+            <p>
+                Escolha sua jogada, desafie a inteligência artificial
+                e conquiste a vitória.
+            </p>
+
+        </section>
+
+        <!-- CONFIGURAÇÕES -->
+        <section class="game-settings">
+
+            <div class="setting-group">
+                <label for="difficulty">DIFICULDADE</label>
+
+                <select id="difficulty">
+                    <option value="easy">Fácil</option>
+                    <option value="medium" selected>Médio</option>
+                    <option value="hard">Difícil</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label>FORMATO</label>
+
+                <div class="format-display">
+                    Melhor de 5
+                </div>
+            </div>
+
+        </section>
+
+        <!-- PLACAR -->
+        <section class="scoreboard">
+
+            <article class="score-card player-card">
+
+                <span class="player-label">JOGADOR</span>
+
+                <div class="player-avatar">👤</div>
+
+                <h3>Você</h3>
+
+                <strong id="score">0</strong>
+
+                <span class="score-caption">PONTOS</span>
+
+            </article>
+
+            <div class="versus">
+                <span>VS</span>
+            </div>
+
+            <article class="score-card machine-card">
+
+                <span class="player-label">INTELIGÊNCIA ARTIFICIAL</span>
+
+                <div class="player-avatar">🤖</div>
+
+                <h3>Jokey AI</h3>
+
+                <strong id="alexaScore">0</strong>
+
+                <span class="score-caption">PONTOS</span>
+
+            </article>
+
+        </section>
+
+        <!-- ÁREA DO JOGO -->
+        <section class="game-area">
+
+            <div class="game-heading">
+
+                <h2>Faça sua escolha</h2>
+
+                <span id="round">RODADA 1 DE 5</span>
+
+            </div>
+
+            <div class="choices">
+
+                <button class="choice-button" data-choice="rock" aria-label="Escolher pedra">
+                    <span>✊</span>
+                    <small>PEDRA</small>
+                </button>
+
+                <button class="choice-button" data-choice="paper" aria-label="Escolher papel">
+                    <span>✋</span>
+                    <small>PAPEL</small>
+                </button>
+
+                <button class="choice-button" data-choice="scissors" aria-label="Escolher tesoura">
+                    <span>✌️</span>
+                    <small>TESOURA</small>
+                </button>
+
+            </div>
+
+            <div class="game-result" aria-live="polite">
+
+                <p id="result">
+                    Escolha uma opção para começar!
+                </p>
+
+                <div class="battle-display">
+
+                    <span id="humanChoice">❔</span>
+
+                    <small>VS</small>
+
+                    <span id="machineChoice">❔</span>
+
+                </div>
+
+            </div>
+
+            <button id="restartButton" class="restart-button">
+                ↻ Reiniciar partida
+            </button>
+
+        </section>
+
+        <!-- ESTATÍSTICAS -->
+        <section class="statistics-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-tag">SEU DESEMPENHO</span>
+                    <h2>Estatísticas</h2>
+                </div>
+            </div>
+
+            <div class="statistics-grid">
+
+                <article class="stat-card">
+                    <span>Partidas</span>
+                    <strong id="totalGames">0</strong>
+                </article>
+
+                <article class="stat-card">
+                    <span>Vitórias</span>
+                    <strong id="totalWins">0</strong>
+                </article>
+
+                <article class="stat-card">
+                    <span>Derrotas</span>
+                    <strong id="totalLosses">0</strong>
+                </article>
+
+                <article class="stat-card">
+                    <span>Taxa de vitória</span>
+                    <strong id="winRate">0%</strong>
+                </article>
+
+            </div>
+
+            <div class="record-card">
+
+                <div>
+                    <span>🏆 Seu melhor desempenho</span>
+                    <p>Recorde de vitórias consecutivas</p>
+                </div>
+
+                <strong id="bestStreak">0</strong>
+
+            </div>
+
+        </section>
+
+        <!-- HISTÓRICO -->
+        <section class="history-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-tag">ACOMPANHAMENTO</span>
+                    <h2>Últimas partidas</h2>
+                </div>
+
+                <button id="clearHistory" class="clear-button">
+                    Limpar histórico
+                </button>
+            </div>
+
+            <div id="historyList" class="history-list">
+
+                <p class="empty-history">
+                    Suas partidas aparecerão aqui.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- RODAPÉ -->
+        <footer class="footer">
+
+            <p>JokeyPÔ Premium Edition</p>
+
+            <span>Desenvolvido com HTML, CSS e JavaScript.</span>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

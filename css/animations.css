@@ -1,0 +1,191 @@
+
+/* =========================================
+   JOKEYPO - ANIMATIONS
+   ARQUIVO: animations.css
+========================================= */
+
+/* Entrada suave da aplicação */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.app-container {
+    animation: fadeIn 0.7s ease both;
+}
+
+/* Pulso do indicador online */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 12px #22c55e;
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 3px #22c55e;
+    }
+}
+
+.status-indicator {
+    animation: pulse 2s infinite;
+}
+
+/* Destaque do placar */
+
+@keyframes scorePop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.score-pop {
+    animation: scorePop 0.35s ease;
+}
+
+/* Entrada do resultado */
+
+@keyframes resultAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.result-animation {
+    animation: resultAppear 0.4s ease;
+}
+
+/* Animação da jogada */
+
+@keyframes choiceBounce {
+    0% {
+        transform: scale(0.7);
+    }
+
+    60% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.choice-animation {
+    animation: choiceBounce 0.45s ease;
+}
+
+/* Respeita quem prefere menos movimento */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================
+   JOKEYPO - PREMIUM ANIMATIONS
+========================================= */
+
+/* Efeito ao passar o mouse nas escolhas */
+.choice-button {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.choice-button:hover:not(:disabled) {
+    transform: translateY(-6px) scale(1.04);
+    filter: brightness(1.2);
+    box-shadow: 0 0 22px rgba(139, 92, 246, 0.45);
+}
+
+.choice-button:active:not(:disabled) {
+    transform: scale(0.94);
+}
+
+/* Animação quando alguém pontua */
+.score-pop {
+    animation: scorePopPremium 0.45s ease;
+}
+
+@keyframes scorePopPremium {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.4);
+        filter: brightness(1.8);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+/* Destaque ao finalizar uma partida */
+.match-celebration {
+    animation: matchCelebration 0.8s ease;
+}
+
+@keyframes matchCelebration {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    35% {
+        transform: scale(1.05);
+        filter: brightness(1.6);
+    }
+
+    70% {
+        transform: scale(0.98);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+/* Acessibilidade: respeita quem prefere menos animações */
+@media (prefers-reduced-motion: reduce) {
+    .choice-button,
+    .score-pop,
+    .match-celebration {
+        animation: none !important;
+        transition: none !important;
+    }
+}
